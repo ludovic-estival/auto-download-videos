@@ -1,5 +1,4 @@
-urlLabel = "Saisir le lien d'une ou plusieurs vidéos.\nDans le cas de plusieurs vidéos, saisir un lien par ligne."
-
+# A DEPLACE
 def validateUrl():
     folderSelected = filedialog.askdirectory()
     value = urlText.get("1.0", "end-1c")
@@ -38,24 +37,35 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import *
+from tkinter import ttk
 
 window = tk.Tk()
+window.geometry("400x275")
 window.title("Video Downloader")
+window.iconbitmap("assets\\icon.ico")
 
-videoFormat = StringVar(value="MP3")
-Radiobutton(window, text="MP3", variable=videoFormat, value="MP3").pack(anchor=W)
-Radiobutton(window, text="MP4", variable=videoFormat, value="MP4").pack(anchor=W)
-Label(window, text=urlLabel, font=("Arial", 11), justify="left").pack(anchor=W)
+# -- Grid
+window.columnconfigure(0, weight=3)
+#window.rowconfigure(0, weight=2)
+window.columnconfigure(1, weight=1)
+window.columnconfigure(2, weight=1)
 
 # -- Text Field
+#Label(window, text="Un lien par ligne.", font=("Arial", 11), justify="left").pack(anchor=W)
 urlText = tk.Text(window, height=8, width=40)
-scroll = tk.Scrollbar(window)
-urlText.configure(yscrollcommand=scroll.set)
+#scroll = tk.Scrollbar(window)
+#urlText.configure(yscrollcommand=scroll.set)
 urlText.pack()
-scroll.config(command=urlText.yview) 
-scroll.pack(side=RIGHT, fill=Y)
+#scroll.config(command=urlText.yview) 
+#scroll.pack(side=RIGHT, fill=Y)
+
+urlText.grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
 # --
 
-urlButton = Button(window, text="Valider", command=validateUrl, font=("Arial", 11)).pack()
+videoFormat = StringVar(value="MP3")
+Radiobutton(window, text="Audio (MP3)", variable=videoFormat, value="MP3", font=("Arial", 11)).grid(column=2, row=0, sticky=tk.W, padx=5, pady=5)
+Radiobutton(window, text="Audio + vidéo (MP4)", variable=videoFormat, value="MP4", font=("Arial", 11)).grid(column=2, row=1, sticky=tk.W, padx=5, pady=5)
+
+urlButton = Button(window, text="Valider", command=validateUrl, font=("Arial", 11)).grid(column=2, row=2, sticky=tk.W, padx=5, pady=5)
 
 window.mainloop()
