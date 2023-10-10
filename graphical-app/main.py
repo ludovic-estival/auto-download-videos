@@ -39,27 +39,27 @@ from tkinter import filedialog
 from tkinter import *
 from tkinter import ttk
 
-window = tk.Tk()
-window.geometry("400x275")
+window = Tk()
+window.geometry("600x300")
 window.title("Video Downloader")
 window.iconbitmap("assets\\icon.ico")
 
 # -- Grid
-window.columnconfigure(0, weight=3)
-#window.rowconfigure(0, weight=2)
-window.columnconfigure(1, weight=1)
-window.columnconfigure(2, weight=1)
+#window.columnconfigure(0, weight=3)
+#window.rowconfigure(1, weight=2)
+#window.columnconfigure(1, weight=1)
+#window.columnconfigure(2, weight=1)
 
 # -- Text Field
 #Label(window, text="Un lien par ligne.", font=("Arial", 11), justify="left").pack(anchor=W)
 urlText = tk.Text(window, height=8, width=40)
 #scroll = tk.Scrollbar(window)
 #urlText.configure(yscrollcommand=scroll.set)
-urlText.pack()
+#urlText.pack()
 #scroll.config(command=urlText.yview) 
 #scroll.pack(side=RIGHT, fill=Y)
 
-urlText.grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
+urlText.grid(column=0, row=0, rowspan=2, sticky=tk.W, padx=5, pady=5)
 # --
 
 videoFormat = StringVar(value="MP3")
