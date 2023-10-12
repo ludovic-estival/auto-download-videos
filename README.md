@@ -1,14 +1,10 @@
 # Auto-download videos
 Un outil qui permet de télécharger des vidéos YouTube au format MP3 ou MP4.
 
-## Structure du dépôt
+## Usage
 
-`command-line`: utilisation en ligne de commande <br>
-:warning: **En cours de développement**: nécessaire de modifier le code source avec les liens des vidéos à télécharger
+Installez la librairie python PyTube: `pip install pytube`.
+Lancez l'application:
+- commande `python main.py`
 
-`graphical-app`: application graphique fonctionnelle
-
-## Installation
-
-`pip install pytube`
 
