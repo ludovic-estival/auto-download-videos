@@ -7,6 +7,6 @@ Installez la librairie python PyTube: `pip install pytube`.
 
 Lancez l'application:
 - commande `python main.py`
-- via `main.exe`: [ici](dist/)
+- via `main.exe`: [ici](src/dist/)
 
 
